@@ -72,7 +72,9 @@
   },
   "teambit.git/ci": {
     "sync": {
-      "lanes": ["*"],
+      "lanes": [
+        "*"
+      ],
       "mainSync": "pr",
       "onConflict": "halt"
     }

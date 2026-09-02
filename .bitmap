@@ -12,16 +12,9 @@
     "payments/fee-calculator": {
         "name": "payments/fee-calculator",
         "scope": "acme-modular.payments",
-        "version": "42e1866f4049e5f85be33c1ec9ee95233d520f7e",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "payments/payments/fee-calculator"
     },
-    "$schema-version": "17.0.0",
-    "_bit_lane": {
-        "id": {
-            "name": "try-git-sync",
-            "scope": "acme-modular.payments"
-        },
-        "exported": true
-    }
+    "$schema-version": "17.0.0"
 }
