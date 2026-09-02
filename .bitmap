@@ -12,9 +12,16 @@
     "payments/fee-calculator": {
         "name": "payments/fee-calculator",
         "scope": "acme-modular.payments",
-        "version": "0.0.2",
+        "version": "03755c0f1015f10b37fd181245a1b66ce68d71ae",
         "mainFile": "index.ts",
         "rootDir": "payments/payments/fee-calculator"
     },
-    "$schema-version": "17.0.0"
+    "$schema-version": "17.0.0",
+    "_bit_lane": {
+        "id": {
+            "name": "phase-b-check",
+            "scope": "acme-modular.payments"
+        },
+        "exported": true
+    }
 }
