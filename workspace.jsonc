@@ -66,5 +66,15 @@
   },
   "teambit.workspace/workspace-config-files": {
     "enableWorkspaceConfigWrite": true
+  },
+  "teambit.harmony/bit": {
+    "engine": "2.2.18"
+  },
+  "teambit.git/ci": {
+    "sync": {
+      "lanes": ["*"],
+      "mainSync": "pr",
+      "onConflict": "halt"
+    }
   }
 }
