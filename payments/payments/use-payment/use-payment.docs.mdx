@@ -1,0 +1,34 @@
+---
+description: Pays for an order and tracks the payment status, fee and receipt.
+labels: ['react', 'hook', 'payments', 'data']
+---
+
+`usePayment` posts an order's total to `POST /payments` and tracks the payment as `idle`, `processing`, `succeeded` or `failed`. The receipt carries the processing fee from `calculateFee`. Without a `client` it talks to an in-memory mock backend, so previews and demos work offline.
+
+## Pay for an order
+
+```tsx
+import { usePayment } from '@acme-modular/payments.payments.use-payment';
+
+const { pay, status, receipt } = usePayment();
+await pay(order, 'card');
+// receipt: { id, orderId, amountCents, feeCents, method }
+```
+
+## Handle a failed payment
+
+```tsx
+const { pay, status, error, reset } = usePayment();
+
+if (status === 'failed') return <Alert tone="negative" title="Payment failed">{error?.message}</Alert>;
+<Button onClick={reset}>Try another method</Button>
+```
+
+## Against a real backend
+
+```tsx
+import { createHttpClient } from '@acme-modular/platform.utils.http-client';
+
+const client = createHttpClient({ baseUrl: 'https://api.acme.example/v1' });
+const payment = usePayment({ client });
+```

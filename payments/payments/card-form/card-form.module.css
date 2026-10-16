@@ -1,0 +1,23 @@
+.cardForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large, 16px);
+  max-width: 420px;
+}
+
+.numberRow {
+  position: relative;
+}
+
+/* the brand badge sits in the label row so it never shifts the input while typing. */
+.brand {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-medium, 8px);
+}

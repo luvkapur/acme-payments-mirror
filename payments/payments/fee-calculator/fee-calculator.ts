@@ -3,6 +3,6 @@
  * fee = percentage of amount plus a fixed part, rounded to whole cents.
  */
 export function calculateFee(amountCents: number, percent = 2.9, fixedCents = 30): number {
-  if (amountCents <= 0) return 0; // phase A check: no fee on empty payments
+  if (amountCents <= 0) return 0; // no fee on an empty payment
   return Math.round((amountCents * percent) / 100 + fixedCents);
 }
