@@ -1,0 +1,33 @@
+---
+description: A radio group to choose card, PayPal or invoice as the payment method.
+labels: ['react', 'ui', 'payments', 'checkout']
+---
+
+`PaymentMethodPicker` is a controlled, labelled radio group for the three ACME payment methods: `card`, `paypal` and `invoice`. It exports the `PaymentMethod` type that `usePayment` and checkout share.
+
+## Controlled picker
+
+```tsx
+import { PaymentMethodPicker } from '@acme-modular/payments.payments.payment-method-picker';
+import type { PaymentMethod } from '@acme-modular/payments.payments.payment-method-picker';
+
+const [method, setMethod] = useState<PaymentMethod>('card');
+<PaymentMethodPicker value={method} onChange={setMethod} />
+```
+
+## Ask for card details only when needed
+
+```tsx
+import { CardForm } from '@acme-modular/payments.payments.card-form';
+
+<PaymentMethodPicker value={method} onChange={setMethod} />
+{method === 'card' && <CardForm onSubmit={saveCard} />}
+```
+
+## Show the choice on a review step
+
+```tsx
+import { paymentMethodLabel } from '@acme-modular/payments.payments.payment-method-picker';
+
+<p>Paying with {paymentMethodLabel(method)}</p>
+```

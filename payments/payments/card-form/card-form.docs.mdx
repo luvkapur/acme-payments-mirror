@@ -1,0 +1,29 @@
+---
+description: A validated card number, expiry and CVC form that only passes on brand, last four and expiry.
+labels: ['react', 'ui', 'payments', 'form', 'card']
+---
+
+`CardForm` collects card details and checks them with `card-validation` when the customer submits: Luhn, brand length, expiry and CVC length (4 digits for Amex). On success it calls `onSubmit` with `{ brand, last4, expiry }`. The full number and the CVC never leave the component.
+
+## Collect a card
+
+```tsx
+import { CardForm } from '@acme-modular/payments.payments.card-form';
+
+<CardForm onSubmit={(card) => setCard(card)} />
+```
+
+## Custom submit label
+
+```tsx
+<CardForm submitLabel="Pay now" onSubmit={({ brand, last4 }) => pay(brand, last4)} />
+```
+
+## Only for card payments
+
+```tsx
+import { PaymentMethodPicker } from '@acme-modular/payments.payments.payment-method-picker';
+
+<PaymentMethodPicker value={method} onChange={setMethod} />
+{method === 'card' && <CardForm onSubmit={saveCard} submitLabel="Continue to review" />}
+```

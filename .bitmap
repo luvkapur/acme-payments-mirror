@@ -9,12 +9,40 @@
  */
 
 {
+    "payments/card-form": {
+        "name": "payments/card-form",
+        "scope": "acme-modular.payments",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "payments/payments/card-form"
+    },
+    "payments/card-validation": {
+        "name": "payments/card-validation",
+        "scope": "acme-modular.payments",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "payments/payments/card-validation"
+    },
     "payments/fee-calculator": {
         "name": "payments/fee-calculator",
         "scope": "acme-modular.payments",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "payments/payments/fee-calculator"
+    },
+    "payments/payment-method-picker": {
+        "name": "payments/payment-method-picker",
+        "scope": "acme-modular.payments",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "payments/payments/payment-method-picker"
+    },
+    "payments/use-payment": {
+        "name": "payments/use-payment",
+        "scope": "acme-modular.payments",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "payments/payments/use-payment"
     },
     "$schema-version": "17.0.0"
 }

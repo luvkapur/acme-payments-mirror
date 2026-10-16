@@ -1,0 +1,35 @@
+---
+description: Client-side card checks — Luhn, brand detection, expiry and CVC length.
+labels: ['payments', 'validation', 'card', 'util']
+---
+
+`card-validation` catches card typos before the payment provider sees them: the Luhn checksum, a number length that fits the brand, an expiry that hasn't passed and a CVC of the right length (4 digits for Amex, 3 for everyone else). Spaces in numbers are ignored, so you can validate exactly what the customer typed.
+
+## Validate a card form
+
+```ts
+import { validateCard } from '@acme-modular/payments.payments.card-validation';
+
+const { valid, errors } = validateCard({ number: '4242 4242 4242 4242', expiry: '12/28', cvc: '123' });
+if (!valid) showErrors(errors); // { number?: string; expiry?: string; cvc?: string }
+```
+
+## Show the brand while typing
+
+```ts
+import { detectBrand, luhnCheck } from '@acme-modular/payments.payments.card-validation';
+
+detectBrand('3782 822463 10005'); // 'amex'
+luhnCheck('4242 4242 4242 4241'); // false
+```
+
+## Deterministic expiry checks
+
+Pass `now` so tests and previews don't start failing when the calendar moves on.
+
+```ts
+import { validateExpiry } from '@acme-modular/payments.payments.card-validation';
+
+validateExpiry('10/26', new Date(2026, 9, 16)); // true, valid through the end of October
+validateExpiry('09/26', new Date(2026, 9, 16)); // false
+```
